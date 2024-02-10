@@ -1,19 +1,23 @@
 const fs = require("fs-extra");
 
-function generateStructure({ projectName, structurePath }) {
+function generateStructure({ projectName, structurePath, customPath }) {
   console.log("Generating project structure...");
-
-  const projectPath = `./${projectName}`;
-
-  if (fs.existsSync(projectPath)) {
-    fs.removeSync(projectPath);
-  }
 
   const { makeStructure } = require(structurePath);
 
   const structure = makeStructure(projectName);
 
-  fs.mkdirSync(projectPath);
+  let projectPath = `./${projectName}`;
+
+  if (customPath) {
+    projectPath = `./${customPath}/${projectName}`;
+  }
+
+  if (fs.existsSync(projectPath)) {
+    fs.removeSync(projectPath);
+  }
+
+  fs.mkdirSync(projectPath, { recursive: true });
 
   for (const folderOrFile in structure) {
     const path = `${projectPath}/${folderOrFile}`;
@@ -21,7 +25,7 @@ function generateStructure({ projectName, structurePath }) {
     if (typeof structure[folderOrFile] === "string") {
       fs.writeFileSync(path, structure[folderOrFile]);
     } else {
-      fs.mkdirSync(path);
+      fs.mkdirSync(path, { recursive: true });
 
       for (const file in structure[folderOrFile]) {
         fs.writeFileSync(`${path}/${file}`, structure[folderOrFile][file]);
@@ -34,10 +38,11 @@ function generateStructure({ projectName, structurePath }) {
 
 const projectName = process.argv[2];
 const structurePath = process.argv[3];
+const customPath = process.argv[4];
 
 if (!projectName) {
   console.error("Please provide a name for the project.");
   process.exit(1);
 }
 
-generateStructure({ projectName, structurePath });
+generateStructure({ projectName, structurePath, customPath });
