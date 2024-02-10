@@ -2,7 +2,7 @@
 const { exec } = require("child_process");
 
 const projectName = process.argv[2];
-const structurePath = process.argv[3];
+const encryptedStructure = process.argv[3];
 const customPath = process.argv[4];
 
 if (!projectName) {
@@ -10,8 +10,8 @@ if (!projectName) {
   process.exit(1);
 }
 
-if (!structurePath) {
-  console.error("Please provide a path to the structure file.");
+if (!encryptedStructure) {
+  console.error("Please provide a path to the structure file as string.");
   process.exit(1);
 }
 
@@ -24,7 +24,7 @@ if (isLib) {
     "./node_modules/izi-template/src/template-generator.js";
 }
 
-const commandToExecute = `node ${templateGeneratorPath} ${projectName} ${structurePath} ${customPath}`;
+const commandToExecute = `node ${templateGeneratorPath} ${projectName} ${encryptedStructure} ${customPath}`;
 
 exec(commandToExecute, (error, stdout, stderr) => {
   if (error) {

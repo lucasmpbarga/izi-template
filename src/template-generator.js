@@ -1,11 +1,14 @@
 const fs = require("fs-extra");
+const { decryptIzi } = require("../util/index.js");
 
-function generateStructure({ projectName, structurePath, customPath }) {
+function generateStructure({
+  projectName,
+  structureString: encryptedStructure,
+  customPath,
+}) {
   console.log("Generating project structure...");
 
-  const { makeStructure } = require(structurePath);
-
-  const structure = makeStructure(projectName);
+  const structure = decryptIzi(encryptedStructure);
 
   let projectPath = `./${projectName}`;
 
@@ -37,7 +40,7 @@ function generateStructure({ projectName, structurePath, customPath }) {
 }
 
 const projectName = process.argv[2];
-const structurePath = process.argv[3];
+const structureString = process.argv[3];
 const customPath = process.argv[4];
 
 if (!projectName) {
@@ -45,4 +48,4 @@ if (!projectName) {
   process.exit(1);
 }
 
-generateStructure({ projectName, structurePath, customPath });
+generateStructure({ projectName, structureString, customPath });

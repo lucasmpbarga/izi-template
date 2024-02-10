@@ -1,8 +1,7 @@
 {
   "name": "izi-template",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "main": "./src/index.js",
-  "type": "commonjs",
   "bin": {
     "izi-template": "./src/index.js"
   },
@@ -16,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "fs-extra": "^11.2.0"
   }
 }
