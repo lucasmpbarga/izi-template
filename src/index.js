@@ -1,7 +1,11 @@
+#!/usr/bin/env node
 const { exec } = require("child_process");
 
-const projectName = process.argv[2];
-const structurePath = process.argv[3];
+console.log(process.argv);
+
+const from = process.argv[2];
+const projectName = process.argv[3];
+const structurePath = process.argv[4];
 
 if (!projectName) {
   console.error("Please provide a name for the project.");
@@ -12,8 +16,14 @@ if (!structurePath) {
   console.error("Please provide a path to the structure file.");
   process.exit(1);
 }
+let templateGeneratorPath = "./src/template-generator.js";
 
-const commandToExecute = `node ./src/template-generator.js ${projectName} ${structurePath}`;
+if (from === "external") {
+  templateGeneratorPath =
+    "./node_modules/izi-template/src/template-generator.js";
+}
+
+const commandToExecute = `node ${templateGeneratorPath} ${projectName} ${structurePath}`;
 
 exec(commandToExecute, (error, stdout, stderr) => {
   if (error) {

@@ -1,13 +1,17 @@
 {
   "name": "izi-template",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "type": "commonjs",
+  "bin": {
+    "izi-template": "./src/index.js external"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "make:engine": "node ./src/index.js",
-    "make:engine:local": "node ./src/index.js new-engine ./_template/_structure.js"
+    "make:gear1": "node ./src/index.js",
+    "make:gear2": "node ./src/index.js local new-gear2 ./_template/_structure.js",
+    "make:gear:local": "node ./src/index.js new-gear ./_template/_structure.js"
   },
   "keywords": [],
   "author": "",
