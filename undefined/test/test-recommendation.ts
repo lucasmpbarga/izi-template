@@ -1,9 +1,9 @@
 
-  export const newGearRecommendation = ({
+  export const testRecommendation = ({
     nutrients,
     referencesRange,
   }) => {
-    const newGearRecommendation = {};
+    const testRecommendation = {};
     
       // EXAMPLE
       // if (
@@ -14,6 +14,6 @@
       //     'vitaminas do complexo b , vitamina e , silimarina, L-carnitina';
       // }
   
-    return newGearRecommendation;
+    return testRecommendation;
   };
   

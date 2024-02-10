@@ -1,5 +1,5 @@
 
-  export const newGearReferenceRange = () => {
+  export const testReferenceRange = () => {
     let response = {
       type: 'U/L',
       min: 0,

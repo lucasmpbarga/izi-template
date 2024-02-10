@@ -1,6 +1,6 @@
 {
-  "name": "izi-template",
-  "version": "1.0.8",
+  "name": "izi-template-new",
+  "version": "1.0.9",
   "description": "",
   "main": "index.js",
   "type": "commonjs",
@@ -9,13 +9,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "make:gear1": "node ./src/index.js",
+    "make:gear1": "node ./src/index.js test ./_template/_structure.js",
     "make:gear2": "node ./src/index.js local new-gear2 ./_template/_structure.js",
     "make:gear:local": "node ./src/index.js new-gear ./_template/_structure.js"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "fs-extra": "^11.2.0"
   }
