@@ -1,0 +1,17 @@
+{
+  "name": "template-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "make:engine": "node ./src/index.js gama-glub ./_template/_structure.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  }
+}
