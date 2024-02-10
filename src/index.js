@@ -1,13 +1,19 @@
 const { exec } = require("child_process");
 
 const projectName = process.argv[2];
+const structurePath = process.argv[3];
 
 if (!projectName) {
-  console.error("Usage: node index.js <dynamicArgument>");
+  console.error("Please provide a name for the project.");
   process.exit(1);
 }
 
-const commandToExecute = `node ./src/template-generator.js ${projectName} ./_template/_structure.js`;
+if (!structurePath) {
+  console.error("Please provide a path to the structure file.");
+  process.exit(1);
+}
+
+const commandToExecute = `node ./src/template-generator.js ${projectName} ${structurePath}`;
 
 exec(commandToExecute, (error, stdout, stderr) => {
   if (error) {
