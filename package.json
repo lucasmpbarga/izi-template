@@ -1,6 +1,10 @@
 {
   "name": "izi-template",
-  "version": "1.0.14",
+  "version": "1.0.15",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/obarg777/izi-template.git"
+  },
   "main": "./src/index.js",
   "bin": {
     "izi-template": "./src/index.js"
