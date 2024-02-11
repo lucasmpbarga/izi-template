@@ -1,7 +1,3 @@
-Certainly! Below is a basic template for a README file for your npm library. Make sure to customize it according to your specific project details and features.
-
----
-
 # izi-template
 
 [![npm version](https://badge.fury.io/js/izi-template.svg)](https://www.npmjs.com/package/izi-template)
