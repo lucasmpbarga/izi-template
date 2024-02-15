@@ -14,7 +14,7 @@ Certainly! Below is a basic template for a README file for your npm library. Mak
 To use **izi-template**, you need to have Node.js installed. After that, you can install the library globally using npm:
 
 ```bash
-npm install izi-template
+yarn add -D izi-template
 ```
 
 ## Usage
@@ -77,6 +77,10 @@ const makeStructure = (projectName) => {
 
 module.exports = { makeStructure };
 ```
+
+## How this is works?
+
+https://drive.google.com/drive/folders/1TELYRdoPMB9R5YXuc4CvPl4ZHbcLNc0v
 
 ## License
 
